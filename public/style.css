@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+body{
+
+    margin: 0;
+    padding: 0;
+    background-color: #000000;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    
+    
+}
+
+img{
+    width: 45%;
+    height: 80%;
+    border-radius: 20%;
+    object-fit: cover;
+    border: #f2f2f2 2px solid;
+}
+
+.container{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    gap: 2rem;
+    /* background-color: #000000; */
+}
+.fileinput{
+    font-size: 27px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: #c3afe4;
+    padding: 20px;
+    width: 20rem;
+    border-radius: 25px;
+    border: 2px dashed #a370f0;
+}
+
+#file-input{
+
+    display: none;
+}
+
+.password{
+  
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: #7b52b9;
+}
+
+.password input{
+
+    width: 20rem;
+    height: 3rem;
+    border-radius: 20px;
+    padding-left: 1rem;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    color: #dedddd;
+    background-color: #7b52b939;
+}
+
+.cssbuttons-io-button {
+    background: #a370f0;
+    color: white;
+    font-family: inherit;
+    padding: 0.35em;
+    padding-left: 1.2em;
+    font-size: 17px;
+    font-weight: 500;
+    border-radius: 0.9em;
+    border: 2px solid #714da6;
+    letter-spacing: 0.05em;
+    display: flex;
+    align-items: center;
+    box-shadow:  0 0 1.6em -0.6em #a272e2;
+    
+    overflow: hidden;
+    position: relative;
+    
+    height: 2.8em;
+    padding-right: 3.3em;
+    cursor: pointer;
+  }
+  
+  .cssbuttons-io-button .icon {
+    background: rgb(239, 239, 239);
+    margin-left: 1em;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.2em;
+    width: 2.2em;
+    border-radius: 0.7em;
+    box-shadow: 0.1em 0.1em 0.6em 0.2em #7b52b9;
+    right: 0.3em;
+    transition: all 0.3s;
+  }
+  
+  .cssbuttons-io-button:hover .icon {
+    width: calc(100% - 0.6em);
+
+  }
+
+  .cssbuttons-io-button:hover{
+
+    box-shadow: 0px 3px 50px 9px  #7b37da;
+    /* box-shadow: 0.1em 0.1em 0.6em 0.2em #7b52b9; */
+
+  }
+  
+  .cssbuttons-io-button .icon svg {
+    width: 1.1em;
+    transition: transform 0.3s;
+    color: #7b52b9;
+  }
+  
+  .cssbuttons-io-button:hover .icon svg {
+    transform: translateX(0.1em);
+  }
+  
+  .cssbuttons-io-button:active .icon {
+    transform: scale(0.95);
+  }
+  

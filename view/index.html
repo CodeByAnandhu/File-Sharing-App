@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/public/style.css" />
+  </head>
+  <body>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      version="1.1"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      xmlns:svgjs="http://svgjs.dev/svgjs"
+      viewBox="0 0 800 800"
+    >
+      <defs>
+        <filter
+          id="bbblurry-filter"
+          x="-100%"
+          y="-100%"
+          width="400%"
+          height="400%"
+          filterUnits="objectBoundingBox"
+          primitiveUnits="userSpaceOnUse"
+          color-interpolation-filters="sRGB"
+        >
+          <feGaussianBlur
+            stdDeviation="63"
+            x="0%"
+            y="0%"
+            width="100%"
+            height="100%"
+            in="SourceGraphic"
+            edgeMode="none"
+            result="blur"
+          ></feGaussianBlur>
+        </filter>
+      </defs>
+      <g filter="url(#bbblurry-filter)">
+        <ellipse
+          rx="175.5"
+          ry="165.5"
+          cx="838.1974487304688"
+          cy="516.3727416992188"
+          fill="hsla(272, 86%, 51%, 0.25)"
+        ></ellipse>
+        <ellipse
+          rx="175.5"
+          ry="165.5"
+          cx="214.22228104588498"
+          cy="52.06367664122432"
+          fill="hsla(272, 99%, 54%, 0.46)"
+        ></ellipse>
+        <ellipse
+          rx="175.5"
+          ry="165.5"
+          cx="147.96960115676188"
+          cy="666.6343784975215"
+          fill="hsla(272, 99%, 54%, 0.33)"
+        ></ellipse>
+      </g>
+    </svg>
+
+    <div class="container">
+      <div class="fileinput">
+        <input type="file" id="file-input" accept="image/*, .pdf" multiple />
+        <label for="file-input" id="file-label">click to select</label>
+      </div>
+
+      <div class="password">
+        <label class="passwordLabel" for="password">Password</label>
+        <input type="password" id="password" name="password" />
+      </div>
+
+      <button class="cssbuttons-io-button">
+        Upload
+        <div class="icon">
+          <svg
+            height="24"
+            width="24"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M0 0h24v24H0z" fill="none"></path>
+            <path
+              d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"
+              fill="currentColor"
+            ></path>
+          </svg>
+        </div>
+      </button>
+    </div>
+  </body>
+</html>
