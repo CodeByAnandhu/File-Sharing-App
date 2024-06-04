@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CloudShare</title>
+    <link rel="stylesheet" href="/mainHome.css" />
+    <script src="https://kit.fontawesome.com/1069728e6a.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+
+
+
+         <!-- Popup Messsege -->
+<% if (typeof errorMessage !== 'undefined' && errorMessage.length > 0) { %>
+  <div id="popupmessege" class="popup-containerForError">
+      <h4><%= errorMessage %> <i class="fa-solid fa-circle-exclamation"></i></h4>
+    </div>
+<% } %>
+
+<% if (typeof successMessage !== 'undefined' && successMessage.length > 0) { %>
+  <div id="popupmessege" class="popup-containerForSuccess">
+      <h4> <%= successMessage %>  <i class="fa-solid fa-circle-check"></i></h4>
+    </div>
+<% } %>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var popup = document.getElementById('popupmessege');
+    setTimeout(function() {
+      popup.style.animation = 'popOut 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards';
+      setTimeout(function() {
+        popup.remove();
+      }, 300);
+    }, 4000);
+  });
+</script>
+<!-- Popup Messsege -->
+
+
+   
+      <div class="container2">
+        <a href="#login">
+          <h2 class="logo1">Share Now</h2>
+        </a>
+          <ul class="nav-links">
+              <li><a href="#">Home</a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Services</a></li>
+              <li><a href="#">Contact</a></li>
+          </ul>
+      </div>
+  
+
+    
+    
+    <div class="mask"></div>
+
+    <div class="container">
+
+      <div class="heading">
+        <h1 class="logo">CloudShare+</h1>
+      </div>
+      
+        <script type="module" src="https://unpkg.com/@splinetool/viewer@1.1.2/build/spline-viewer.js"></script>
+        <spline-viewer url="https://prod.spline.design/1vf67n8Jpbla6mrd/scene.splinecode"></spline-viewer>
+
+    </div>
+
+
+    <div class="secondContainer">
+
+       
+      <h1 class="btn-shine" >And Effortless Sharing</h1>
+      <h1 class="btn-shine" >Unlock Seamless Collaboration </h1>
+      
+      <!-- <a href="#" class="btn-shine bottom">And Effortless Sharing</a>
+      <a href="#" class="btn-shine"></a> -->
+
+      
+      <div class="mask2"></div>
+    <div class="overlay"></div>
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.1.2/build/spline-viewer.js"></script>
+    <spline-viewer class="spline" url="https://prod.spline.design/xScw5uFJcyfakMkK/scene.splinecode"></spline-viewer>
+   
+<section id="login">
+    <div class="login-container">
+      <form class="login-form" action="/login" method="post">
+          <h2>Login Now</h2>
+          <div class="input-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email"  placeholder="Enter your email">
+          </div>
+          <div class="input-group">
+              <label for="password">Password</label>
+              <input type="password" id="password" name="password"  placeholder="Enter your password">
+          </div>
+          
+          
+
+          <button class="btn" type="submit">
+            <svg height="24" width="24" fill="#FFFFFF" viewBox="0 0 24 24" data-name="Layer 1" id="Layer_1" class="sparkle">
+                <path d="M10,21.236,6.755,14.745.264,11.5,6.755,8.255,10,1.764l3.245,6.491L19.736,11.5l-6.491,3.245ZM18,21l1.5,3L21,21l3-1.5L21,18l-1.5-3L18,18l-3,1.5ZM19.333,4.667,20.5,7l1.167-2.333L24,3.5,21.667,2.333,20.5,0,19.333,2.333,17,3.5Z"></path>
+            </svg>
+        
+            <span class="text">Submit</span>
+        </button>
+
+
+      </form>
+  </div>
+</section>
+
+
+    </div>
+
+  </body>
+</html>

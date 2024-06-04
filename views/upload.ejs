@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CloudShare</title>
+  <link rel="stylesheet" href="/style.css" />
+  <script src="https://kit.fontawesome.com/6293a1580a.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+  <nav>
+    <div class="backArrow"> 
+      <a href="/home"><i class="fa-solid fa-arrow-left"></i></a>
+    </div>
+
+    <div class="logo">
+      <h1>CloudShare+</h1>
+    </div>
+
+    <div class="uplodeList">
+      <a href="/uploadedFiles" style="color: rgb(224, 224, 224);"><h3><i class="fa-solid fa-folder"></i> Uploaded Files</h3></a>
+    </div>  
+       
+  </nav>
+
+
+  <main>
+
+
+  <!-- Popup Messsege -->
+  <% if (typeof errorMessage !=='undefined' && errorMessage.length> 0) { %>
+    <div id="popupmessege" class="popup-containerForError">
+      <h4>
+        <%= errorMessage %> <i class="fa-solid fa-circle-exclamation"></i>
+      </h4>
+    </div>
+    <% } %>
+
+      <% if (typeof successMessage !=='undefined' && successMessage.length> 0) { %>
+        <div id="popupmessege" class="popup-containerForSuccess">
+          <h4>
+            <%= successMessage %> <i class="fa-solid fa-circle-check"></i>
+          </h4>
+        </div>
+        <% } %>
+
+
+          <script>
+            document.addEventListener('DOMContentLoaded', function () {
+              var popup = document.getElementById('popupmessege');
+              setTimeout(function () {
+                popup.style.animation = 'popOut 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards';
+                setTimeout(function () {
+                  popup.remove();
+                }, 300);
+              }, 4000);
+            });
+          </script>
+          <!-- Popup Messsege -->
+
+
+
+
+
+
+
+
+          <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
+            xmlns:svgjs="http://svgjs.dev/svgjs" viewBox="0 0 800 800">
+            <defs>
+              <filter id="bbblurry-filter" x="-100%" y="-100%" width="400%" height="400%"
+                filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                <feGaussianBlur stdDeviation="63" x="0%" y="0%" width="100%" height="100%" in="SourceGraphic"
+                  edgeMode="none" result="blur"></feGaussianBlur>
+              </filter>
+            </defs>
+            <g filter="url(#bbblurry-filter)">
+              <ellipse rx="175.5" ry="165.5" cx="838.1974487304688" cy="516.3727416992188"
+                fill="hsla(272, 86%, 51%, 0.25)"></ellipse>
+              <ellipse rx="175.5" ry="165.5" cx="214.22228104588498" cy="52.06367664122432"
+                fill="hsla(272, 99%, 54%, 0.46)"></ellipse>
+              <ellipse rx="175.5" ry="165.5" cx="147.96960115676188" cy="666.6343784975215"
+                fill="hsla(272, 99%, 54%, 0.33)"></ellipse>
+            </g>
+          </svg>
+
+          <div class="container">
+            <form action="/uploads" method="post" enctype="multipart/form-data">
+              <div class="fileinput">
+                <input type="file" id="productImage" name="productImage" multiple required />
+                <label for="productImage" id="file-label">Click to select files</label>
+              </div>
+
+              <div class="password">
+                <label class="passwordLabel" for="password">Password</label>
+                <input type="password" id="password" name="password" />
+                <i id="toggleIcon" class="fa-solid fa-eye"></i>
+              </div>
+
+
+
+              <button class="cssbuttons-io-button" type="submit">
+                Upload
+                <div class="icon">
+                  <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 0h24v24H0z" fill="none"></path>
+                    <path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"
+                      fill="currentColor"></path>
+                  </svg>
+                </div>
+              </button>
+            </form>
+
+
+            
+
+              
+
+             <%if(userUplodeadFiles && userUplodeadFiles.length > 0){%>
+
+                <div class="uploadedFiles">
+                  
+                  <% userUplodeadFiles.forEach(data => { %>
+                    <% data.files.forEach(file => { %>
+                    <ul>
+                        <li><b>File Name</b> : <%= file.originalname %></li>
+                        <li><b>Share Id </b>: <%= data.keyId %></li>
+                        <li><b>Password</b> : <%= data.password %></li>
+                    </ul>
+                    <% }); %>
+                    <% }) %>
+                </div>
+
+                <%}%>
+                
+              
+                
+                 
+
+
+          </div>
+
+
+
+          <script>
+
+            const passwordInput = document.getElementById("password");
+            const toggleIcon = document.getElementById("toggleIcon");
+
+            toggleIcon.addEventListener("click", function () {
+              if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                toggleIcon.classList.remove("fa-eye-slash");
+                toggleIcon.classList.add("fa-eye");
+
+              } else {
+                passwordInput.type = "password";
+                toggleIcon.classList.remove("fa-eye");
+                toggleIcon.classList.add("fa-eye-slash");
+              }
+            });
+
+
+
+            const fileInput = document.getElementById("productImage");
+            const fileLabel = document.getElementById("file-label");
+
+            fileInput.addEventListener("change", function () {
+              const fileCount = this.files.length;
+              if (fileCount === 1) {
+                fileLabel.textContent = "1 File Selected";
+              } else {
+                fileLabel.textContent = `${fileCount} Files Selected`;
+              }
+            });
+
+
+
+          </script>
+
+</main>
+
+</body>
+
+</html>

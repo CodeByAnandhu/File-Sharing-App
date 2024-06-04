@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CloudShare</title>
+    <link rel="stylesheet" href="/download.css" />
+    <script src="https://kit.fontawesome.com/1069728e6a.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+
+    <!-- <script type="module" src="https://unpkg.com/@splinetool/viewer@1.1.2/build/spline-viewer.js"></script>
+        <spline-viewer url="https://prod.spline.design/nrTcCx3IAZ4oSMUx/scene.splinecode"></spline-viewer> -->
+
+
+
+
+        <!-- <script type="module" src="https://unpkg.com/@splinetool/viewer@1.1.2/build/spline-viewer.js"></script>
+        <spline-viewer url="https://prod.spline.design/EtS3MCD6jvHUx-dK/scene.splinecode"></spline-viewer> -->
+
+
+        
+        <script type="module" src="https://unpkg.com/@splinetool/viewer@1.1.2/build/spline-viewer.js"></script>
+        <spline-viewer url="https://prod.spline.design/jwQGd9UYltOldUUX/scene.splinecode"></spline-viewer>
+
+
+
+    <div class="heading">
+        <h1 class="logo">CloudShare+</h1>
+    </div>
+    
+
+
+
+     <!-- Popup Messsege -->
+<% if (typeof errorMessage !== 'undefined' && errorMessage.length > 0) { %>
+  <div id="popupmessege" class="popup-containerForError">
+      <h4><%= errorMessage %> <i class="fa-solid fa-circle-exclamation"></i></h4>
+    </div>
+<% } %>
+
+<% if (typeof successMessage !== 'undefined' && successMessage.length > 0) { %>
+  <div id="popupmessege" class="popup-containerForSuccess">
+      <h4> <%= successMessage %>  <i class="fa-solid fa-circle-check"></i></h4>
+    </div>
+<% } %>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var popup = document.getElementById('popupmessege');
+    setTimeout(function() {
+      popup.style.animation = 'popOut 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards';
+      setTimeout(function() {
+        popup.remove();
+      }, 300);
+    }, 4000);
+  });
+</script>
+<!-- Popup Messsege -->
+
+
+  
+
+    <div class="mask"></div>
+
+    
+    <div class="container">
+
+      <form action="/download" method="post">
+     <!-- <label for="download-link">Download Link</label>    -->
+     <input type="text" id="download-link" placeholder="Past the download link" name="keyId"> 
+      <!-- <label for="password">Password</label> -->
+     <input type="password" id="password" placeholder="Password" name="password">
+
+
+     <button class="btn" type="submit">
+        <strong>Download</strong>
+        <div id="container-stars">
+          <div id="stars"></div>
+        </div>
+      
+        <div id="glow">
+          <div class="circle"></div>
+          <div class="circle"></div>
+        </div>
+      </button>
+
+    </form>
+
+    </div>
+
+  
+
+
+  </body>
+</html>
